@@ -11,8 +11,13 @@ public class Landscape {
 		insertInaccessibleFields(inaccessiblePositions);
 	}
 
-	public boolean isAccessible(Position position){
-		return true; // TODO implement
+	public boolean isAccessible(Position position){//TODO check if not outside landscape
+		int x = position.x;
+		int y = position.y;
+		if(fields[x][y].equals(Field.INACCESSIBLE)) {
+            return false;
+        }
+		return true;
 	}
 
 	@Override
@@ -41,4 +46,5 @@ public class Landscape {
 			}
 		}
 	}
+
 }

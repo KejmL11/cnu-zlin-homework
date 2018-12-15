@@ -30,6 +30,18 @@ class LandscapeTest {
 
 	@Test
 	void isAccessible() {
-		// TODO implement (more variants)
+		List<Position> stones = new ArrayList<>();
+		stones.add(new Position(0, 0));
+		Landscape landscape = new Landscape(2, stones);
+		boolean result = landscape.isAccessible(new Position(1,0));
+		assertTrue(result, "Position 1,0 should be accessible");
+	}
+	@Test
+	void isInaccessible() {
+		List<Position> stones = new ArrayList<>();
+		stones.add(new Position(0, 0));
+		Landscape landscape = new Landscape(2, stones);
+		boolean result = landscape.isAccessible(new Position(0,0));
+		assertFalse(result, "Position 0,0 should be inaccessible");
 	}
 }
