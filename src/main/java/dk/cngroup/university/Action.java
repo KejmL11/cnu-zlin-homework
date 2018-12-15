@@ -1,16 +1,20 @@
 package dk.cngroup.university;
 
 public enum Action {
-	RIGHT{
+	RIGHT {
 		@Override
 		public Rover perform(Rover rover, Landscape landscape) {
-			return null;
+			Direction direction = rover.getDirection().getDirectionOnRight();
+			Position position = rover.getPosition();
+			return new Rover(direction, position);
 		}
 	},
 	LEFT {
 		@Override
 		public Rover perform(Rover rover, Landscape landscape) {
-			return null;
+				Direction direction = rover.getDirection().getDirectionOnLeft();
+				Position position = rover.getPosition();
+				return new Rover(direction, position);
 		}
 	},
 	FORWARD {
