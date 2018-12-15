@@ -15,7 +15,13 @@ public class Position {
 		switch (direction) {
 			case SOUTH:
 				return new Position(x + 1, y);
-			default: // TODO implement
+			case WEST:
+				return new Position(x, y - 1);
+			case NORTH:
+				return new Position(x - 1, y);
+			case EAST:
+				return new Position(x, y + 1);
+			default:
 				return this;
 		}
 	}
