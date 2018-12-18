@@ -44,4 +44,10 @@ class LandscapeTest {
 		boolean result = landscape.isAccessible(new Position(0,0));
 		assertFalse(result, "Position 0,0 should be inaccessible");
 	}
+	@Test
+	void outOfBounds() {
+		Landscape landscape = new Landscape(2, new ArrayList<>());
+		boolean result = landscape.isAccessible(new Position(2,0));
+		assertTrue(result, "Position -1,0 should be inaccessible");
+	}
 }

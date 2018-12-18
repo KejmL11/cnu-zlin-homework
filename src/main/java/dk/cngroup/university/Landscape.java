@@ -14,6 +14,17 @@ public class Landscape {
 	public boolean isAccessible(Position position){//TODO check if not outside landscape
 		int x = position.x;
 		int y = position.y;
+
+		if(x > fields.length - 1 || x < 0){
+			System.out.println("X coordinate is out of bounds " + position);
+			return false;
+		}
+
+		if(y> fields.length - 1 || x < 0){
+			System.out.println("Y one coordinate is out of bounds " + position);
+			return false;
+		}
+
 		if(fields[x][y].equals(Field.INACCESSIBLE)) {
             return false;
         }
