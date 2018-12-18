@@ -32,7 +32,14 @@ public enum Action {
 	BACKWARD {
 		@Override
 		public Rover perform(Rover rover, Landscape landscape) {
-			return null;
+			Direction turnBack = rover.getDirection().getDirectionOnLeft();
+			Direction direction = turnBack.getDirectionOnLeft();
+			Position position =
+					rover.getPosition().getNeighbour(direction);
+			if (landscape.isAccessible(position)) {
+				return new Rover(rover.getDirection(), position);
+			}
+			return rover;
 		}
 	};
 
