@@ -11,7 +11,7 @@ public class Landscape {
 		insertInaccessibleFields(inaccessiblePositions);
 	}
 
-	public boolean isAccessible(Position position){//TODO check if not outside landscape
+	public boolean isAccessible(Position position){
 		int x = position.x;
 		int y = position.y;
 
