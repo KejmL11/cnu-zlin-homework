@@ -15,17 +15,21 @@ public class InputParser {
     }
 
     public Rover parseRover(String s) {
-        String[] split = s.split("//n");
+        String[] split = s.split("\\n");
         Direction direction;
         switch (split[1]){
             case "N":
                 direction = Direction.NORTH;
+                break;
             case "E":
                 direction = Direction.EAST;
+                break;
             case "W":
                 direction = Direction.WEST;
+                break;
             default :
                 direction = Direction.SOUTH;
+                break;
         }
         String positionString = split[0];
         String[] coordinates = positionString.split(",");
@@ -38,7 +42,7 @@ public class InputParser {
     }
 
     public Landscape parseLandscape(String s){
-        String[] split = s.split("//n");
+        String[] split = s.split("\\n");
         String stones = split[3];
         String size = split[2];
         String[] stoneCoordinates = stones.split(";");
