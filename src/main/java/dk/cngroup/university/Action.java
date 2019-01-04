@@ -25,8 +25,9 @@ public enum Action {
 					rover.getPosition().getNeighbour(direction);
 			if (landscape.isAccessible(position)) {
 				return new Rover(direction, position);
+			}else{
+				return rover;
 			}
-			return rover;
 		}
 	},
 	BACKWARD {
@@ -38,8 +39,9 @@ public enum Action {
 					rover.getPosition().getNeighbour(direction);
 			if (landscape.isAccessible(position)) {
 				return new Rover(rover.getDirection(), position);
+			}else{
+				return rover;
 			}
-			return rover;
 		}
 	};
 

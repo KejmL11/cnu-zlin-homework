@@ -7,11 +7,20 @@ import java.util.List;
 public class InputParser {
 
 
+    public Position parseFinalPosition(String s){
+        String[] split = s.split("\\n");
+        String position = split[4];
+        String[] coordinates = position.split(",");
+        int x = Integer.parseInt(coordinates[0]);
+        int y = Integer.parseInt(coordinates[1]);
+
+        return new Position(x, y);
+    }
+
     public char[] parseActions(String s) {
         String[] split = s.split("\\n");
         String receivedActions = split[5];
-        char[] actions = receivedActions.toCharArray();
-        return actions;
+        return receivedActions.toCharArray();
     }
 
     public Rover parseRover(String s) {
@@ -37,8 +46,7 @@ public class InputParser {
         int y = Integer.parseInt(coordinates[1]);
         Position position = new Position(x, y);
 
-        Rover rover = new Rover(direction, position);
-        return rover;
+        return new Rover(direction, position);
     }
 
     public Landscape parseLandscape(String s){
@@ -48,15 +56,11 @@ public class InputParser {
         String[] stoneCoordinates = stones.split(";");
         List<Position> inaccessiblePositions = new ArrayList<Position>();
         for(String sl : stoneCoordinates){
-            String coordinatesXY[] = sl.split(",");
+            String[] coordinatesXY = sl.split(",");
             int x = Integer.parseInt(coordinatesXY[0]);
             int y = Integer.parseInt(coordinatesXY[1]);
             inaccessiblePositions.add(new Position(x,y));
         }
-
-        Landscape landscape = new Landscape(Integer.parseInt(size), inaccessiblePositions);
-        return landscape;
+        return new Landscape(Integer.parseInt(size), inaccessiblePositions);
     }
-
-
 }
